@@ -1,6 +1,6 @@
 # <span style="color:white">Terraform</span> <span style="color:green">Beginner</span> <span style="color:red">Bootcamp</span> 2023
 
-## Semantic versioning
+## Semantic versioning :mage:
 
 This project is going to use [Semantic Versioning](https://semver.org/) for its tagging.
 
