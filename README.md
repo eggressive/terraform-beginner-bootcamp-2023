@@ -1,4 +1,4 @@
-:bulgaria: Terraform BeginnerBootcamp 2023
+:bg: Terraform BeginnerBootcamp 2023
 
 ## Semantic versioning :mage:
 
