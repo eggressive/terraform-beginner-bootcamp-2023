@@ -18,7 +18,7 @@ The general format:
 
 Update the installation process of Terraform CLI according to the latest documentation from HashiCorp.
 
-[Install terraform CLI :terraform:](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+[Install terraform CLI :hcl:](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
 ### Fixed gpg deprecation issue
 
