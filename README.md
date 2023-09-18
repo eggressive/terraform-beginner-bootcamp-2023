@@ -1,4 +1,4 @@
-:bgflag: Terraform BeginnerBootcamp 2023
+Terraform BeginnerBootcamp 2023
 
 ## Semantic versioning :mage:
 
