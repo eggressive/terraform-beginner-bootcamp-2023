@@ -26,3 +26,8 @@ Update the installation process of Terraform CLI according to the latest documen
 - Added key fingerprint verification step
 - Updated the command to add the repository to sources.list.d
 - Updated workflow steps to `before` instead of `init`
+
+This will set the variable in all future Gitpod workspaces
+
+>Any variables set in `.gitpod.yml` should no contain sensitive information. :exclamation:
+>
