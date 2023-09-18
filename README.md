@@ -11,3 +11,18 @@ The general format:
 - **MAJOR** version when you make incompatible API changes
 - **MINOR** version when you add functionality in a backward compatible manner
 - **PATCH** version when you make backward compatible bug fixes
+
+## Install terraform CLI
+
+### Reason for the Terraform CLI update
+
+Update the install process of Terraform CLI according to the latest documentation from HashiCorp.
+
+[Install terraform CLI :computer:](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
+### Fixed gpg deprecation issue
+
+- Suppressed output from wget command
+- Added key fingerprint verification step
+- Updated the command to add repository to sources.list.d
+- Updated workflow steps to `before` instead of `init`
