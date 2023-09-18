@@ -12,7 +12,7 @@ The general format:
 - **MINOR** version when you add functionality in a backward-compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 
-## Install terraform CLI
+## Install terraform CLI :floppy_disk:
 
 ### Reason for the Terraform CLI update
 
@@ -26,3 +26,17 @@ Update the installation process of Terraform CLI according to the latest documen
 - Added key fingerprint verification step
 - Updated the command to add the repository to sources.list.d
 - Updated workflow steps to `before` instead of `init`
+
+## Env vars
+
+### Persisting env vars in Gitpod :capital_abcd:
+
+Gitpod allows to persist env vars in the workspace. This is useful for storing sensitive information like AWS credentials.
+
+```bash
+gp env PROJECT_ROOT=/workspace/terraform-beginner-bootcamp-2023
+```
+
+This will set the variable in all future Gitpod workspaces
+
+>Any variables set in `.gitpod.yml` should not contain sensitive information. :exclamation:
