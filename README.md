@@ -67,7 +67,7 @@ Example of successful output:
 
 ```json
 {
-    "UserId": "AIDA4BN7ZFFNOOAGYY2YB",
+    "UserId": "AKIAIOSFODNN7EXAMPLE",
     "Account": "123456789012",
     "Arn": "arn:aws:iam::123456789012:user/tfuser"
 }
