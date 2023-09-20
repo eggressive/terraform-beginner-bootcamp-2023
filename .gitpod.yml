@@ -17,6 +17,7 @@ tasks:
       /usr/local/bin/aws sts get-caller-identity
       sudo rm awscliv2.zip
       sudo rm -rf aws
+      alias tfapply='terraform apply --auto-approve'
       cd $PROJECT_ROOT
 vscode:
   extensions:
