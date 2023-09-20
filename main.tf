@@ -9,6 +9,13 @@ terraform {
       version = "5.17.0"
     }
   }
+  cloud {
+    organization = "eggressive"
+
+  workspaces {
+    name = "terra-house-eggressive"
+    }
+  }    
 }
 
 provider "aws" {
@@ -25,7 +32,7 @@ resource "random_string" "bucket_name" {
   override_special = "-."
 }
 
-resource "aws_s3_bucket" "example" {
+resource "aws_s3_bucket" "s3bucket" {
   bucket = random_string.bucket_name.result
 }
 
