@@ -121,3 +121,30 @@ This file **can contain sensitive data** and **should not be committed** to vers
 ### Terraform directory `.terraform`
 
 The `.terraform` directory contains plugins and other files that Terraform uses to access and manage your providers.
+
+## Issue with Terraform Cloud login in Gitpod
+
+`terraform login` command in Gitpod will launch a Lynx browser window to authenticate with Terraform Cloud. However, the browser window will not be able to load the page correctly.
+
+The workaround is to manually generate a token in Terraform Cloud and use it to login.
+
+[https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/api-tokens](https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/api-tokens)
+
+The Terraform login generates a token in the file `/home/gitpod/.terraform.d/credentials.tfrc.json`.
+
+```json
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "xxxREPLACExxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  }
+}
+```
+
+The `TF_CLI_CONFIG_FILE` variable can be used to point to the location of the terraform token file.
+
+### Example
+
+```bash
+TF_CLI_CONFIG_FILE='/home/gitpod/.terraform.d/credentials.tfrc.json'
+```
