@@ -43,7 +43,7 @@ resource "random_string" "bucket_name" {
   length           = 10
   upper            = false
   special          = true
-  override_special = "-."
+  override_special = "-"
 }
 
 resource "aws_s3_bucket" "s3bucket" {
