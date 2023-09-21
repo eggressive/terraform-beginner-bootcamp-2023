@@ -143,8 +143,33 @@ The Terraform login generates a token in the file `/home/gitpod/.terraform.d/cre
 
 The `TF_CLI_CONFIG_FILE` variable can be used to point to the location of the terraform token file.
 
-### Example
+### Automation of Terraform Cloud login
+
+#### Set env vars
 
 ```bash
-TF_CLI_CONFIG_FILE='/home/gitpod/.terraform.d/credentials.tfrc.json'
+# Set env variables
+gp env TF_CLI_CONFIG_FILE='/home/gitpod/.terraform.d/credentials.tfrc.json'
+gp env TF_TOKEN='xxxREPLACExxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+```
+
+#### Create bash script in `bin/tflogin.sh`
+
+```bash
+#!/bin/bash
+
+if [ -z "$TF_CLI_CONFIG_FILE" ]; then
+  echo "Error: TF_CLI_CONFIG_FILE environment variable is not set"
+  exit 1
+fi
+
+cat <<EOF > "$TF_CLI_CONFIG_FILE"
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "$TF_TOKEN"
+    }
+  }
+}
+EOF
 ```
