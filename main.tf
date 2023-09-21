@@ -19,10 +19,24 @@ terraform {
 }
 
 provider "aws" {
-  # Configuration options
+  region = var.region
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
 provider "random" {
   # Configuration options
+}
+
+variable "aws_access_key" {
+  default = ""
+}
+
+variable "aws_secret_key" {
+  default = ""
+}
+
+variable "region" {
+  default = "eu-central-1"
 }
 
 resource "random_string" "bucket_name" {

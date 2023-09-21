@@ -59,7 +59,7 @@ AWS Env Vars example:
 
 ```bash
 export AWS_ACCESS_KEY_ID='AKIAIOSFODNN7EXAMPLE'
-export AWS_SECRET_ACCESS_KEY='wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
+export AWS_SECRET_ACCESS_KEY='xxxxxxxxxxxxxxxxxxxxxxxxxEXAMPLEKEY'
 export AWS_DEFAULT_REGION='eu-central-1'
 ```
 
@@ -143,8 +143,69 @@ The Terraform login generates a token in the file `/home/gitpod/.terraform.d/cre
 
 The `TF_CLI_CONFIG_FILE` variable can be used to point to the location of the terraform token file.
 
-### Example
+### Automation of Terraform Cloud login
+
+#### Set env vars
 
 ```bash
-TF_CLI_CONFIG_FILE='/home/gitpod/.terraform.d/credentials.tfrc.json'
+# Set env variables
+gp env TF_CLI_CONFIG_FILE='/home/gitpod/.terraform.d/credentials.tfrc.json'
+gp env TF_TOKEN='xxxREPLACExxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+```
+
+#### Create bash script in `bin/tflogin.sh`
+
+```bash
+#!/bin/bash
+
+if [ -z "$TF_CLI_CONFIG_FILE" ]; then
+  echo "Error: TF_CLI_CONFIG_FILE environment variable is not set"
+  exit 1
+fi
+
+cat <<EOF > "$TF_CLI_CONFIG_FILE"
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "$TF_TOKEN"
+    }
+  }
+}
+EOF
+```
+
+### Setting TF_VAR to override settings in aws provider
+
+To fix the issue with the `aws` provider not being able to find the credentials, we can set the `TF_VAR` environment variable to override the settings in the `aws` provider.
+
+Added following variables to Gitpod env vars:
+
+```bash
+gp env TF_VAR_aws_access_key="$AWS_ACCESS_KEY_ID"
+gp env TF_VAR_aws_secret_key="$AWS_SECRET_ACCESS_KEY"
+```
+
+This way, Terraform will use the `TF_VAR_aws_access_key` and `TF_VAR_aws_secret_key` environment variables to set the `aws_access_key` and `aws_secret_key` variables, respectively.
+
+```terraform
+provider "aws" {
+  region = var.region
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
+}
+provider "random" {
+  # Configuration options
+}
+
+variable "aws_access_key" {
+  default = ""
+}
+
+variable "aws_secret_key" {
+  default = ""
+}
+
+variable "region" {
+  default = "eu-central-1"
+}
 ```
