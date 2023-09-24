@@ -9,7 +9,7 @@
 - [Env vars :capital_abcd:](#env-vars--capital-abcd-)
   * [Persisting env vars in Gitpod](#persisting-env-vars-in-gitpod)
 - [AWS CLI Installation :cloud:](#aws-cli-installation--cloud-)
-- [Terraform Basics](#terraform-basics)
+- [Terraform Basics :imp:](#terraform-basics)
   * [Terraform registry](#terraform-registry)
   * [Terraform console](#terraform-console)
     + [`terraform init`](#-terraform-init-)
@@ -99,7 +99,7 @@ Example of successful output:
 }
 ```
 
-## Terraform Basics
+## Terraform Basics :imp:
 
 ### Terraform registry
 
