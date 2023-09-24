@@ -1,4 +1,4 @@
-# <div style="text-align:center">Terraform Beginner Bootcamp 2023 - Week 0 :school_satchel: </div>
+# Terraform Beginner Bootcamp 2023 - Week 0 :school_satchel:
 
 ## Table of Contents
 
