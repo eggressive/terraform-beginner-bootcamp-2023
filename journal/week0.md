@@ -2,14 +2,14 @@
 
 ## Table of Contents
 
-- [Semantic versioning :mage:](#semantic-versioning--mage-)
-- [Install terraform CLI :floppy_disk:](#install-terraform-cli--floppy-disk-)
+- [Semantic versioning](#semantic-versioning)
+- [Install terraform CLI](#install-terraform-cli)
   * [Reason for the Terraform CLI update](#reason-for-the-terraform-cli-update)
   * [Fixed gpg deprecation issue](#fixed-gpg-deprecation-issue)
-- [Env vars :capital_abcd:](#env-vars--capital-abcd-)
+- [Env vars](#env-vars)
   * [Persisting env vars in Gitpod](#persisting-env-vars-in-gitpod)
-- [AWS CLI Installation :cloud:](#aws-cli-installation--cloud-)
-- [Terraform Basics :imp:](#terraform-basics)
+- [AWS CLI Installation](#aws-cli-installation)
+- [Terraform Basics](#terraform-basics)
   * [Terraform registry](#terraform-registry)
   * [Terraform console](#terraform-console)
     + [`terraform init`](#-terraform-init-)
@@ -26,7 +26,7 @@
     + [Create bash script in `bin/tflogin.sh`](#create-bash-script-in--bin-tfloginsh-)
   * [Setting TF_VAR to override settings in aws provider](#setting-tf-var-to-override-settings-in-aws-provider)
 
-## Semantic versioning :mage:
+## Semantic versioning
 
 This project will use [Semantic Versioning](https://semver.org/) for its tagging.
 
@@ -38,7 +38,7 @@ The general format:
 - **MINOR** version when you add functionality in a backward-compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 
-## Install terraform CLI :floppy_disk:
+## Install terraform CLI
 
 ### Reason for the Terraform CLI update
 
@@ -53,7 +53,7 @@ Update the installation process of Terraform CLI according to the latest documen
 - Updated the command to add the repository to sources.list.d
 - Updated workflow steps to `before` instead of `init`
 
-## Env vars :capital_abcd:
+## Env vars
 
 ### Persisting env vars in Gitpod
 
@@ -67,7 +67,7 @@ This will set the variable in all future Gitpod workspaces
 
 >Any variables set in `.gitpod.yml` should not contain sensitive information. :exclamation:
 
-## AWS CLI Installation :cloud:
+## AWS CLI Installation
 
 Code is in the `aws-cli` task in the [.gitpod.yml](.gitpod.yml) file.
 
@@ -99,7 +99,7 @@ Example of successful output:
 }
 ```
 
-## Terraform Basics :imp:
+## Terraform Basics
 
 ### Terraform registry
 
