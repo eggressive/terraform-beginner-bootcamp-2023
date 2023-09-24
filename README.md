@@ -1,6 +1,6 @@
 # <span style="color:white">Terraform</span> <span style="color:green">Beginner</span> <span style="color:red">Bootcamp</span> 2023
 
-Table of Contents
+## Table of Contents
 
 - [Semantic versioning](#semantic-versioning-mage)
 - [Install terraform CLI](#install-terraform-cli-floppy_disk)
