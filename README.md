@@ -1,5 +1,32 @@
 # <span style="color:white">Terraform</span> <span style="color:green">Beginner</span> <span style="color:red">Bootcamp</span> 2023
 
+Table of Contents
+
+- [Semantic versioning](#semantic-versioning-mage)
+- [Install terraform CLI](#install-terraform-cli-floppy_disk)
+  - [Reason for the Terraform CLI update](#reason-for-the-terraform-cli-update)
+  - [Fixed gpg deprecation issue](#fixed-gpg-deprecation-issue)
+- [Env vars](#env-vars-capital_abcd)
+  - [Persisting env vars in Gitpod](#persisting-env-vars-in-gitpod)
+- [AWS CLI Installation](#aws-cli-installation-cloud)
+- [Terraform Basics](#terraform-basics)
+  - [Terraform registry](#terraform-registry)
+  - [Terraform console](#terraform-console)
+    - [`terraform init`](#terraform-init)
+    - [`terraform plan`](#terraform-plan)
+    - [`terraform apply`](#terraform-apply)
+    - [`terraform destroy`](#terraform-destroy)
+    - [`terraform validate`](#terraform-validate)
+  - [Terraform lock file `terraform.lock.hcl`](#terraform-lock-file-terraformlockhcl)
+  - [Terraform state file `terraform.tfstate`](#terraform-state-file-terraformtfstate)
+  - [Terraform directory `.terraform`](#terraform-directory-terraform)
+  - [Issue with Terraform Cloud login in Gitpod](#issue-with-terraform-cloud-login-in-gitpod)
+    - [Automation of Terraform Cloud login](#automation-of-terraform-cloud-login)
+      - [Set env vars](#set-env-vars)
+      - [Create bash script in `bin/tflogin.sh`](#create-bash-script-in-bintfloginsh)
+    - [Setting TF_VAR to override settings in aws provider](#setting-tf_var-to-override-settings-in-aws-provider)
+
+
 ## Semantic versioning :mage:
 
 This project will use [Semantic Versioning](https://semver.org/) for its tagging.
