@@ -29,11 +29,6 @@ Terraform often needs cloud provider credentials and other sensitive information
 
 [Input Variables](https://developer.hashicorp.com/terraform/language/values/variables)
 
-#### -var flag
-
-Input variables let you customize aspects of Terraform modules without altering the module's own source code. This functionality allows you to share modules across different Terraform configurations, making your module composable and reusable.
-
-**Input variables are like function arguments.**
 
 To specify individual variables on the command line, use the -var option when running the `terraform plan` and `terraform apply` commands
 
@@ -41,18 +36,9 @@ To specify individual variables on the command line, use the -var option when ru
 terraform apply -var="image_id=ami-abc123"
 ```
 
-#### -var file flag
-
-- *TBD*
-
 #### terraform.tfvars file
 
 To set lots of variables, it is more convenient to specify their values in a variable definitions file (with a filename ending in either .tfvars or .tfvars.json).
 
 #### auto.tfvars file
 
-- *TBD*
-
-#### Order of Precedence
-
-- *TBD*
