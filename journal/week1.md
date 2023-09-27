@@ -70,3 +70,7 @@ Terraform loads variables in the following order, with later sources taking prec
 ### Terraform Import
 
 [Terraform `import` command](https://developer.hashicorp.com/terraform/cli/commands/import)
+
+## What if we lose our state file?
+
+[Terraform State Restoration Overview](https://support.hashicorp.com/hc/en-us/articles/4403065345555-Terraform-State-Restoration-Overview)
