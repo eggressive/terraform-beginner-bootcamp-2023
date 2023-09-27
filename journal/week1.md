@@ -61,4 +61,12 @@ Terraform loads variables in the following order, with later sources taking prec
 - Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)
 - Default values for the variables, as defined in the root module.
 
+## Deal with Configuration Drift
 
+### Fix missing resource with `terraform import`
+
+[Detecting and Managing Drift with Terraform](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform)
+
+### Terraform Import
+
+[Terraform `import` command](https://developer.hashicorp.com/terraform/cli/commands/import)
