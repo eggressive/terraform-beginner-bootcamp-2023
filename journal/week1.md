@@ -74,3 +74,45 @@ Terraform loads variables in the following order, with later sources taking prec
 ## What if we lose our state file?
 
 [Terraform State Restoration Overview](https://support.hashicorp.com/hc/en-us/articles/4403065345555-Terraform-State-Restoration-Overview)
+
+## Fix using `terraform refresh`
+
+```hcl
+terraform apply -refresh-only --auto-approve
+```
+
+The `-refresh-only` flag tells Terraform to only refresh the state of the resources, without applying any changes. This is useful when you want to check if there are any differences between the current state of the resources and the state file, without actually making any changes to the infrastructure.
+
+`terraform apply -refresh-only` command does not modify the infrastructure, it only updates the state file.
+
+## Terraform Modules
+
+### Terrafom Module structure
+
+It is recommended to place modules in a separate directory, such as `modules`, rather than in the root module directory.
+
+### Passing input variables to modules
+
+Variables must ve decalred in the module's `variables.tf` file.
+
+```hcl
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  *user_uuid = var.user_uuid*
+  bucket_name = var.bucket_name
+}
+```
+
+### Module Sources
+
+[Module Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
+
+The source argument in a module block tells Terraform where to find the source code for the desired child module.
+
+```hcl
+module "terrahouse_aws" {
+  *source = "./modules/terrahouse_aws"*
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
+}
+```

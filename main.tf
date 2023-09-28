@@ -1,15 +1,9 @@
-variable "aws_secret_key" {
-  default = ""
+terraform {
+  
 }
 
-variable "region" {
-  default = "eu-central-1"
-}
-
-resource "aws_s3_bucket" "s3bucket" {
-  bucket = var.bucket_name
-
-    tags = {
-      UserUUID     = var.user_uuid
-  }
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
 }
