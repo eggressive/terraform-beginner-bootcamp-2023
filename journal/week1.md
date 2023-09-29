@@ -116,3 +116,24 @@ module "terrahouse_aws" {
   bucket_name = var.bucket_name
 }
 ```
+
+#### Beware of trusting LLMs with coding assistance :heavy_exclamation_mark:
+
+## Working with files in Terraform
+
+### Fileexists Function
+
+[Fileexists Function](https://www.terraform.io/docs/language/functions/fileexists.html)
+
+### Filemd5 Function
+
+[Filemd5 Function](https://www.terraform.io/docs/language/functions/filemd5.html)
+
+
+### Path Variable
+
+[Filesystem and Workspace Info](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
+
+- `path.module` is the filesystem path of the module where the expression is placed. We do not recommend using path.module in write operations because it can produce different behavior depending on whether you use remote or local module sources. Multiple invocations of local modules use the same source directory, overwriting the data in path.module during each call. This can lead to race conditions and unexpected results.
+- `path.root` is the filesystem path of the root module of the configuration.
+- `path.cwd` is the filesystem path of the original working directory from where you ran Terraform before applying any -chdir argument. This path is an absolute path that includes details about the filesystem structure. It is also useful in some advanced cases where Terraform is run from a directory other than the root module directory. **We recommend using path.root or path.module over path.cwd where possible.**
