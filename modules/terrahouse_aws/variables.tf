@@ -33,3 +33,23 @@ variable "user_uuid" {
     error_message = "The user_uuid must be a valid UUID."
   }
 }
+
+variable "index_html_filepath" {
+  description = "The file path of the index.html file."
+  type        = string
+
+  validation {
+    condition     = can(fileexists(var.index_html_filepath))
+    error_message = "The specified index_html_filepath does not exist."
+  }
+}
+
+variable "error_html_filepath" {
+  description = "The file path of the error.html file."
+  type        = string
+
+  validation {
+    condition     = can(fileexists(var.error_html_filepath))
+    error_message = "The specified error_html_filepath does not exist."
+  }
+}
