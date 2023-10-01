@@ -137,3 +137,51 @@ module "terrahouse_aws" {
 - `path.module` is the filesystem path of the module where the expression is placed. We do not recommend using path.module in write operations because it can produce different behavior depending on whether you use remote or local module sources. Multiple invocations of local modules use the same source directory, overwriting the data in path.module during each call. This can lead to race conditions and unexpected results.
 - `path.root` is the filesystem path of the root module of the configuration.
 - `path.cwd` is the filesystem path of the original working directory from where you ran Terraform before applying any -chdir argument. This path is an absolute path that includes details about the filesystem structure. It is also useful in some advanced cases where Terraform is run from a directory other than the root module directory. **We recommend using path.root or path.module over path.cwd where possible.**
+
+## CDN
+
+### Cloudfront Distribution
+
+[S3 Origin](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#s3-origin)
+
+### Origin Access Control
+
+[aws_cloudfront_origin_access_control](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_origin_access_control)
+
+### S3 Bucket Policy
+
+[Resource: aws_s3_bucket_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy)
+
+## Terraform Locals
+
+[Local Values](https://www.terraform.io/docs/language/values/locals.html)
+
+[Simplify Terraform configuration with locals](https://developer.hashicorp.com/terraform/language/values/locals)
+
+```hcl
+locals {
+  name_suffix = "${var.resource_tags["project"]}-${var.resource_tags["environment"]}"
+}
+```
+
+### Terraform Data Sources
+
+This allows us to source data from outside of our Terraform configuration (eg. cloud resources).
+
+Useful when we want to reference data that is not stored in our Terraform state without importing it.
+
+```hcl
+data "aws_caller_identity" "current" {}
+
+output "account_id" {
+  value = data.aws_caller_identity.current.account_id
+}
+```
+
+[Data Sources](https://www.terraform.io/docs/language/data-sources/index.html)
+
+## Working with JSON
+
+### JSONencode Function
+
+[JSONencode Function](https://www.terraform.io/docs/language/functions/jsonencode.html)
