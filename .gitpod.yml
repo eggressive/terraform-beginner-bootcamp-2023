@@ -21,6 +21,12 @@ tasks:
       sudo rm awscliv2.zip
       sudo rm -rf aws
       cd $PROJECT_ROOT
+  - name: http-server
+    before: |
+      npm install -g http-server
+    command: 
+      http-server -p 8080
+
 vscode:
   extensions:
     - amazonwebservices.aws-toolkit-vscode

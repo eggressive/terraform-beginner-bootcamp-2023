@@ -256,3 +256,18 @@ resource "aws_instance" "web" {
 ### Heredoc String
 
 [Heredoc String Syntax](https://www.terraform.io/docs/language/expressions/strings.html#heredoc-string-syntax)
+
+## ForEach Expression
+
+If a resource or module block includes a for_each argument whose value is a map or a set of strings, Terraform creates one instance for each member of that map or set.
+
+```hcl
+resource "aws_instance" "web" {
+  for_each = toset(["a", "b", "c"])
+
+  ami           = "ami-a1b2c3d4"
+  instance_type = "t2.micro"
+}
+```
+
+[The for_each Meta-Argument](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
