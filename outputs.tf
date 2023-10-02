@@ -3,7 +3,12 @@ output "bucket_name" {
   value       = module.terrahouse_aws.bucket_name
 }
 
-output "website_url" {
-  value       = "http://${module.terrahouse_aws.website_url}"
+output "s3_website_url" {
+  value       = "http://${module.terrahouse_aws.s3_website_url}"
+  description = "The website endpoint URL."
+}
+
+output "cdn_website_url" {
+  value       = "http://${module.terrahouse_aws.cdn_website_url}"
   description = "The website endpoint URL."
 }

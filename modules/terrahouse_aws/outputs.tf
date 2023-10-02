@@ -4,12 +4,12 @@ output "bucket_name" {
   value       = aws_s3_bucket.s3bucket.bucket
 }
 
-#output "website_url" {
-#  description = "The website endpoint URL."
-#  value       = aws_s3_bucket.s3bucket.website_endpoint
-#}
+output "s3_website_url" {
+  description = "The S3 endpoint URL."
+  value       = aws_s3_bucket.s3bucket.website_endpoint
+}
 
-output "website_url" {
-  description = "The website endpoint URL."
+output "cdn_website_url" {
+  description = "The Cloudfront endpoint URL."
   value = aws_cloudfront_distribution.s3_distribution.domain_name
 }

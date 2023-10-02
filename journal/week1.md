@@ -197,3 +197,62 @@ The terraform_data resource is useful for storing values which need to follow a 
 Plain data values such as Local Values and Input Variables don't have any side-effects to plan against and so they aren't valid in replace_triggered_by. You can use terraform_data's behavior of planning an action each time input changes to indirectly use a plain value to trigger replacement.
 
 [`terraform_data`](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
+
+## Provisioners
+
+[Provisioners](https://www.terraform.io/docs/language/resources/provisioners/index.html)
+
+You can use provisioners to model specific actions on the local machine or on a remote machine in order to prepare servers or other infrastructure objects for service.
+
+Terraform includes the concept of provisioners as a measure of pragmatism, knowing that there are always certain behaviors that cannot be directly represented in Terraform's declarative model.
+
+*Even if your specific use-case is not described in the following sections, we still recommend attempting to solve it using other techniques first, and use provisioners only if there is no other option.*
+
+[Provisioners are a Last Resort](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax#provisioners-are-a-last-resort)
+
+### Provisioner Local-exec
+
+The `local-exec` provisioner invokes a local executable after a resource is created. This invokes a process on the machine running Terraform, not on the resource.
+
+```hcl
+resource "aws_instance" "web" {
+  # ...
+
+  provisioner "local-exec" {
+    command = "echo The server's IP address is ${self.private_ip}"
+  }
+}
+
+```
+
+[Local-exec Provisioner](https://www.terraform.io/docs/language/resources/provisioners/local-exec.html)
+
+### Provisioner Remote-exec
+
+```hcl
+resource "aws_instance" "web" {
+  # ...
+
+  # Establishes connection to be used by all
+  # generic remote provisioners (i.e. file/remote-exec)
+  connection {
+    type     = "ssh"
+    user     = "root"
+    password = var.root_password
+    host     = self.public_ip
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "puppet apply",
+      "consul join ${aws_instance.web.private_ip}",
+    ]
+  }
+}
+```
+
+[Remote-exec Provisioner](https://www.terraform.io/docs/language/resources/provisioners/remote-exec.html)
+
+### Heredoc String
+
+[Heredoc String Syntax](https://www.terraform.io/docs/language/expressions/strings.html#heredoc-string-syntax)
