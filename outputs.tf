@@ -4,6 +4,6 @@ output "bucket_name" {
 }
 
 output "website_url" {
-  value       = "http://${module.terrahouse_aws.website_url}"
+  value       = "${module.terrahouse_aws.website_url}"
   description = "The website endpoint URL."
 }
