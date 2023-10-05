@@ -5,20 +5,43 @@ require 'active_model'
 
 $home = {}
 
+# This is a ruby class that represents the data that we want to store in our database
+# It also has validations that ensure the data is valid before we try to save it
+# This is a simple example, but in a real app, this would be a model from your database
+# and the validations would be more complex
 class Home
+  # ActiveModel::Validations is a module that provides a lot of useful validations and a part of Ruby on Rails
+  # See: https://api.rubyonrails.org/classes/ActiveModel/Validations.html
   include ActiveModel::Validations
+
+  # This is a macro that defines the attributes that we want to store in our database
   attr_accessor :town, :name, :description, :domain_name, :content_version
 
-  validates :town, presence: true
+  # See https://terratowns.cloud/ for the expected format of the town data
+  # This is a macro that defines the validations that we want to perform on the data
+  # See: https://api.rubyonrails.org/classes/ActiveModel/Validations/ClassMethods.html#method-i-validates
+  validates :town, presence: true, inclusion: { in: [
+    'cooker-cove',
+    'video-valley',
+    'the-nomad-pad',
+    'gamers-grotto',
+    'melomaniac-mansion'
+    ] }
+  # visible to the user
   validates :name, presence: true
   validates :description, presence: true
+  # we want to lock down the domain name to only be from cloudfront.net
   validates :domain_name, 
     format: { with: /\.cloudfront\.net\z/, message: "domain must be from .cloudfront.net" }
     # uniqueness: true, 
 
-  validates :content_version, numericality: { only_integer: true }
+  # content version is an integer
+  # we will make sure it is an incrementing integer on the controller
+    validates :content_version, numericality: { only_integer: true }
 end
 
+# This is a Sinatra app that mocks the TerraTowns API
+# We are extending the Sinatra::Base class
 class TerraTownsMockServer < Sinatra::Base
 
   def error code, message
@@ -185,4 +208,5 @@ class TerraTownsMockServer < Sinatra::Base
   end
 end
 
+# This is the command that starts the server
 TerraTownsMockServer.run!
