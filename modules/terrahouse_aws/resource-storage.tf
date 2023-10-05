@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "s3bucket" {
       Project      = "TerraHouse"
       Name         = "website_bucket"
       Purpose      = "Static Website"
-      Hello        = "World"
+      Hello        = "World!"
   }
 }
 
