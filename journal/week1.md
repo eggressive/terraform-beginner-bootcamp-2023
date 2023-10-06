@@ -1,4 +1,4 @@
-# Terraform Beginner Bootcamp 2023 - Week 1 :school_satchel:
+# Terraform Beginner Bootcamp 2023 - Week 1 :see_no_evil:
 
 ## Root Module Structure
 

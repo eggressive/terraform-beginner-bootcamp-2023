@@ -21,6 +21,11 @@ tasks:
       sudo rm awscliv2.zip
       sudo rm -rf aws
       cd $PROJECT_ROOT
+  - name: sinatra
+    before: | 
+      cd terratowns_mock_server
+      bundle install
+      bundle exec ruby server.rb
   - name: http-server
     before: |
       npm install -g http-server
