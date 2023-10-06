@@ -26,7 +26,6 @@ tasks:
       cd terratowns_mock_server
       bundle install
       bundle exec ruby server.rb
-      cd $PROJECT_ROOT
   - name: http-server
     before: |
       npm install -g http-server
