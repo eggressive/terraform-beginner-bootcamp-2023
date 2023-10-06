@@ -62,6 +62,7 @@ class TerraTownsMockServer < Sinatra::Base
     end
   end
 
+  # returns the hardcoded bearer token
   def x_access_code
     '9b49b3fb-b8e9-483c-b703-97ba88eef8e0'
   end
@@ -72,19 +73,23 @@ class TerraTownsMockServer < Sinatra::Base
 
   def find_user_by_bearer_token
     auth_header = request.env["HTTP_AUTHORIZATION"]
+    # checks if the auth header is nil or if it doesn't start with Bearer
     if auth_header.nil? || !auth_header.start_with?("Bearer ")
       error 401, "a1000 Failed to authenicate, bearer token invalid and/or teacherseat_user_uuid invalid"
     end
 
+    # checks if the bearer token matches the x_access_code or return error
     code = auth_header.split("Bearer ")[1]
     if code != x_access_code
       error 401, "a1001 Failed to authenicate, bearer token invalid and/or teacherseat_user_uuid invalid"
     end
 
+    # was there a user_uuid in the params
     if params['user_uuid'].nil?
       error 401, "a1002 Failed to authenicate, bearer token invalid and/or teacherseat_user_uuid invalid"
     end
 
+    # checks if the user_uuid matches the x_user_uuid or return error
     unless code == x_access_code && params['user_uuid'] == x_user_uuid
       error 401, "a1003 Failed to authenicate, bearer token invalid and/or teacherseat_user_uuid invalid"
     end
@@ -94,27 +99,32 @@ class TerraTownsMockServer < Sinatra::Base
   post '/api/u/:user_uuid/homes' do
     ensure_correct_headings
     find_user_by_bearer_token
+    # puts will print to the console
     puts "# create - POST /api/homes"
 
+    # rescue will catch any errors that occur in the block
     begin
+      # sinatra provides a request object that has a body method that will return the body of the request
       payload = JSON.parse(request.body.read)
     rescue JSON::ParserError
       halt 422, "Malformed JSON"
     end
 
-    # Validate payload data
+    # assign the payload data to variables
     name = payload["name"]
     description = payload["description"]
     domain_name = payload["domain_name"]
     content_version = payload["content_version"]
     town = payload["town"]
 
+    # prints the variables to the console
     puts "name #{name}"
     puts "description #{description}"
     puts "domain_name #{domain_name}"
     puts "content_version #{content_version}"
     puts "town #{town}"
 
+    # create a new instance of the Home class and assign the variables to the attributes
     home = Home.new
     home.town = town
     home.name = name
@@ -122,12 +132,15 @@ class TerraTownsMockServer < Sinatra::Base
     home.domain_name = domain_name
     home.content_version = content_version
     
+    # validate the home object
     unless home.valid?
       error 422, home.errors.messages.to_json
     end
 
+    # generate a random uuid and assign it to the $home variable
     uuid = SecureRandom.uuid
     puts "uuid #{uuid}"
+    # will mock save the home to the database
     $home = {
       uuid: uuid,
       name: name,
@@ -137,6 +150,7 @@ class TerraTownsMockServer < Sinatra::Base
       content_version: content_version
     }
 
+    # return the uuid as json
     return { uuid: uuid }.to_json
   end
 
@@ -149,6 +163,7 @@ class TerraTownsMockServer < Sinatra::Base
     # checks for house limit
 
     content_type :json
+    # checks if the uuid in the params matches the uuid in the $home variable
     if params[:uuid] == $home[:uuid]
       return $home.to_json
     else
@@ -157,6 +172,7 @@ class TerraTownsMockServer < Sinatra::Base
   end
 
   # UPDATE
+  # similar to the create route
   put '/api/u/:user_uuid/homes/:uuid' do
     ensure_correct_headings
     find_user_by_bearer_token
