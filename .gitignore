@@ -35,3 +35,5 @@ terraform.rc
 
 #vscode related files
 .vscode/
+
+terraform-provider-terratowns/terraform-provider-terratowns_v*
