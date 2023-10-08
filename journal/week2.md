@@ -52,3 +52,19 @@ bundle exec ruby server.rb
 ```
 
 All of the code for the webserver is in the `server.rb` file.
+
+## TF Log levels
+
+Terraform has 5 log levels:
+
+- TRACE
+- DEBUG
+- INFO
+- WARN
+- ERROR
+
+You can set the log level by using the `TF_LOG` environment variable. For example:
+
+```sh
+export TF_LOG=DEBUG
+```
