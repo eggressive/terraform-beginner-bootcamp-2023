@@ -68,3 +68,9 @@ You can set the log level by using the `TF_LOG` environment variable. For exampl
 ```sh
 export TF_LOG=DEBUG
 ```
+
+## CRUD
+
+CRUD stands for Create, Read, Update, Delete. It is a set of operations that can be performed on a resource.
+
+[CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
