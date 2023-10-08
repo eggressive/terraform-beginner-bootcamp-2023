@@ -8,11 +8,22 @@ PLUGIN_NAME=terraform-provider-terratowns_v1.0.0
 
 cd $PROJECT_ROOT/terraform-provider-terratowns
 cp $PROJECT_ROOT/terraformrc $HOME/.terraformrc
-rm -rf $HOME/.terraform.d/plugins/
-rm -rf $PROJECT_ROOT/.terraform
-rm -rf $PROJECT_ROOT/.terraform.lock.hcl
 
+if [ -d "$HOME/.terraform.d/plugins/" ]; then
+    rm -rf $HOME/.terraform.d/plugins/
+fi
+
+if [ -d "$PROJECT_ROOT/.terraform" ]; then
+    rm -rf $PROJECT_ROOT/.terraform
+fi
+
+if [ -f "$PROJECT_ROOT/.terraform.lock.hcl" ]; then
+    rm -rf $PROJECT_ROOT/.terraform.lock.hcl
+fi
+
+echo "Compiling..."
 go build -o $PLUGIN_NAME
+echo "Compiling done."
 
 # Create directories if they don't exist
 mkdir -p $PLUGIN_DIR/linux_amd64
