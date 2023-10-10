@@ -5,16 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Matrix Trilogy</title>
     <style>
-        body {font-family: Arial, sans-serif;}
-        .container {max-width: 800px; margin: auto;}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #101010;
+            color: #00ff00;
+        }
+        .header {
+            position: relative;
+            text-align: center;
+            color: #ffffff;
+        }
+        .header img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .header h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4em;
+        }
+        .intrigue {
+            font-size: 1.5em;
+            color: #ff6600;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .title-image-wrapper {
+            display: flex; /* Ah, the dance begins */
+            align-items: right; /* A tender embrace in alignment */
+            gap: 20px; /* A courteous space between partners */
+        }
+        .title-image-wrapper img {
+            border-radius: 10px; /* Soften those edges, for a gentle visual whisper */
+        }
+        .actor {
+            display: flex; /* A dance of elements in harmony */
+            align-items: center; /* Centered, as stars ought to be */
+            gap: 20px; /* A modest space for breathing */
+        }
+        .actor img {
+            border-radius: 50%; /* A gentle curve, like applause rounding off a performance */
+            width: 100px; /* A diminutive yet dignified stance */
+            height: 100px; /* A stature standing tall in pixels */
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="header">
+        <img src="./assets/matrix-banner.jpg" alt="Matrix Banner" width="300" height="250">
         <h1>The Matrix Trilogy: A Digital Odyssey</h1>
-        <p>Unveiling the digital realm of the Matrix, where reality is just a simulation...</p>
-        <h2>The Films</h2>
-        <h3>The Matrix (1999)</h3>
+    </div>
+    <div class="container">
+        <p class="intrigue">Unveiling the digital realm of the Matrix, where reality is just a simulation...</p>
+        <div class="title-image-wrapper">
+            <h3><p class="intrigue">The Matrix (1999)</p></h3>
+            <img src="./assets/TheMatrix1999.jpg" alt="The Matrix Movie Poster" width="300" height="425">
+        </div>
         <p>The Matrix (1999) tells the story of Neo, a computer hacker who is led to fight an underground war against powerful computers who have constructed his entire reality with a system called the Matrix.
 
             Neo is contacted by Morpheus, a legendary computer hacker branded a terrorist by the government, who reveals the truth about the Matrix. The Matrix is a simulated reality that intelligent machines have created to distract humans while using their bodies as an energy source. Neo joins Morpheus and Trinity, another skilled hacker, in their fight against the machines and the agents of the Matrix.
@@ -23,7 +73,10 @@
             
             In the climactic battle, Neo defeats the agents of the Matrix and saves Morpheus from execution. He then escapes from the Matrix and vows to free the rest of humanity.
         </p>
-        <h3>The Matrix Reloaded (2003)</h3>
+        <div class="title-image-wrapper">
+            <h3><p class="intrigue">The Matrix Reloaded (2003)</p></h3>
+            <img src="./assets/MatrixReloaded.jpg" alt="Matrix Reloaded Poster" width="300" height="425">
+        </div>        
         <p>The Matrix Reloaded (2003) is the sequel to the 1999 film The Matrix. It picks up six months after the events of the first film, with Neo and Trinity now romantically involved.
 
             The film opens with Zion, the last human city on Earth, under siege by a massive army of machine Sentinels. Neo and Trinity return to the Matrix to rescue Morpheus and the Keymaker, a program who can help Neo access the Source, the central hub of the Matrix.
@@ -36,7 +89,10 @@
             
             The Matrix Reloaded is a more complex and challenging film than its predecessor, but it is also a visually stunning and thought-provoking film that explores themes such as free will, choice, and the nature of reality.
         </p>
-        <h3>The Matrix Revolutions (2003)</h3>
+        <div class="title-image-wrapper">
+            <h3><p class="intrigue">The Matrix Revolutions (2003)</p></h3>
+            <img src="./assets/MRevolutions_V1_.jpg" alt="Matrix Revolutions Poster" width="300" height="425">
+        </div>        
         <p>The Matrix Revolutions (2003) is the sequel to The Matrix Reloaded and the final film in The Matrix trilogy. It picks up immediately after the events of the previous film, with Neo trapped in a limbo world between the Matrix and the real world, and Trinity critically injured.
 
             Meanwhile, the machines have launched a massive assault on Zion, the last human city on Earth. Morpheus, Niobe, and the other defenders of Zion fight to hold off the machines, but they are outnumbered and outgunned.
@@ -49,7 +105,10 @@
             
             The film's ending is ambiguous, leaving it up to the viewer to decide whether Neo is truly dead or not. However, the film's message is clear: humanity has the power to choose its own destiny.
         </p>
-        <h3>The Matrix Resurrections (2021)</h3>
+        <div class="title-image-wrapper">
+            <h3><p class="intrigue">The Matrix Resurrections (2021)</p></h3>
+            <img src="./assets/The_Matrix_Resurrections.jpg" alt="The Matrix Resurrections Poster" width="300" height="425">
+        </div>        
         <p>The Matrix Resurrections takes place 60 years after the events of The Matrix Revolutions. Neo is now living a seemingly ordinary life as Thomas Anderson, a game designer who created a trilogy of video games based on his dreams of the Matrix. However, Neo begins to question his reality when he is contacted by a woman named Tiffany (Moss), who claims to know him as Trinity.
 
             Neo soon learns that he is still trapped in the Matrix, and that the machines have created a new version of the Matrix that is more powerful and dangerous than ever before. Neo must once again team up with Trinity and Morpheus (Yahya Abdul-Mateen II) to free humanity from the Matrix.
@@ -58,7 +117,10 @@
             
             The film was met with mixed reviews from critics, with some praising its originality and ambition, while others criticizing its pretentiousness and lack of focus. However, the film was a commercial success, grossing over $159 million worldwide.
         </p>
-        <h2>The Directors</h2>
+        <div class="title-image-wrapper">
+            <h2><p class="intrigue">The Directors</p></h2>
+            <img src="./assets/wachowskis.jpg" alt="The Wachowskis" width="453" height="283"> <!-- The maestros' image -->
+        </div>
         <p>Lana and Lilly Wachowski are visionary filmmakers who have pushed the boundaries of science fiction and action cinema with their groundbreaking films. They are best known for creating The Matrix trilogy, which revolutionized the way special effects were used in film and had a profound impact on popular culture.
 
             The Wachowskis are also pioneers in LGBTQ representation in film. They are both trans women, and their films often explore themes of identity and self-discovery. Their work has helped to raise awareness of the trans experience and has inspired a generation of LGBTQ filmmakers.
@@ -69,21 +131,33 @@
             
             Here is a quote from Lana Wachowski that sums up their visionary approach to filmmaking:</p>
         <blockquote cite="https://source-of-the-quote-if-any.com">
-            <p>
+            <p class="intrigue">
                 "We're not interested in making movies that are just about entertainment.
                 We want to make movies that make people think, that challenge them to see the world in a new way."
             </p>
         </blockquote>
-        <h2>The Cast</h2>
+        <div class="title-image-wrapper">
+            <h2><p class="intrigue">The Cast</p></h2>
+        </div>
         <ul>
-            <li>Keanu Reeves as Neo</li>
-            <li>Laurence Fishburne as Morpheus</li>
-            <li>Carrie-Anne Moss as Trinity</li>
-            <li>Hugo Weaving as Agent Smith</li>
-            <li>Joe Pantoliano as Cypher</li>
+            <li class="actor">
+                <img src="./assets/keanu.jpg" alt="Keanu Reeves">Keanu Reeves as Neo
+            </li>
+            <li class="actor">
+                <img src="./assets/laurence.jpg" alt="Laurence Fishburne">Laurence Fishburne as Morpheus
+            </li>
+            <li class="actor">
+                <img src="./assets/carrie.jpg" alt="Carrie-Anne Moss">Carrie-Anne Moss as Trinity
+            </li>
+            <li class="actor">
+                <img src="./assets/hugo.jpg" alt="Hugo Weaving">Hugo Weaving as Agent Smith
+            </li>
+            <li class="actor">
+                <img src="./assets/joe.jpg" alt="Joe Pantoliano">Joe Pantoliano as Cypher
+            </li>
         </ul>
-        <h2>Reception & Box Office</h2>
-        
+        </div>
+        <h2><p class="intrigue">Reception & Box Office</p></h2>
         <h3>The Matrix (1999)</h3>
         <p>
             Reception: Our journey begins with the first beat of the Matrix drum, a rhythm that had the world grooving to its innovative tunes. The Matrix was a thunderbolt that sent shockwaves across the globe, raking in over $460 million on a shoestring (by blockbuster standards) budget of $63 million. Critics and audiences alike were smitten by its groundbreaking special effects, jaw-dropping action sequences, and the labyrinth of philosophical musings it tossed around.
