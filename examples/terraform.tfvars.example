@@ -1,5 +1,4 @@
-user_uuid="ff165866-9be8-43db-af1a-662476f05177"
-bucket_name="website-eggressive"
+terratowns_endpoint="https://terratowns.cloud/api"
 index_html_filepath="public/index.html"
 error_html_filepath="public/error.html"
 assets_path="public/assets"

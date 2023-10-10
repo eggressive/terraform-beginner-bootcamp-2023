@@ -1,11 +1,12 @@
 resource "aws_s3_bucket" "s3bucket" {
-  bucket = var.bucket_name
+  # we want to assign a random name to the bucket
+  #bucket = var.bucket_name
 
-    tags = {
-      UserUUID     = var.user_uuid
-      Project      = "TerraHouse"
-      Name         = "website_bucket"
-      Purpose      = "Static Website"
+  tags = {
+    UserUUID     = var.user_uuid
+    Project      = "TerraHouse"
+    Name         = "website_bucket"
+    Purpose      = "Static Website"
   }
 }
 

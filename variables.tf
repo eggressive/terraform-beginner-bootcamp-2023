@@ -1,7 +1,3 @@
-variable "bucket_name" {
-  type        = string
-}
-
 variable "user_uuid" {
   type        = string
 }
@@ -24,4 +20,14 @@ variable "content_version" {
 variable "assets_path" {
   description = "Path to assets folder."
   type        = string
+}
+
+variable "terratowns_endpoint" {
+  description = "The endpoint of the Terratowns API."
+  type        = string
+}
+
+variable "terratowns_access_token" {
+ type = string
+ description = "value of the access token"
 }
