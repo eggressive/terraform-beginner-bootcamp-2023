@@ -3,6 +3,7 @@
 ## https://servian.dev/terraform-local-providers-and-registry-mirror-configuration-b963117dfffa
 ## https://www.terraform.io/docs/cli/config/config-file.html#provider-installation
 
+echo "Compiling..."
 PLUGIN_DIR="/home/gitpod/.terraform.d/plugins/local.providers/local/terratowns/1.0.0/"
 PLUGIN_NAME="terraform-provider-terratowns_v1.0.0"
 
@@ -19,3 +20,4 @@ mkdir -p $PLUGIN_DIR/x86_64/
 mkdir -p $PLUGIN_DIR/linux_amd64/
 cp $PLUGIN_NAME $PLUGIN_DIR/x86_64
 cp $PLUGIN_NAME $PLUGIN_DIR/linux_amd64
+echo "Compiling done."

@@ -8,9 +8,10 @@ terraform {
 }
 
 provider "terratowns" {
-  endpoint  = "https://terratowns.cloud/api"
-  user_uuid = "ff165866-9be8-43db-af1a-662476f05177"
-  token     = "7fc43df3-5c5c-4446-8087-33b4bbb36db7"
+  #endpoint  = "https://terratowns.cloud/api"
+  endpoint = "http://localhost:4567/api"
+  user_uuid = "e328f4ab-b99f-421c-84c9-4ccea042c7d1"
+  token     = "9b49b3fb-b8e9-483c-b703-97ba88eef8e0"
 }
 
 resource "terratowns_home" "home" {
@@ -20,7 +21,7 @@ resource "terratowns_home" "home" {
   Here, you can learn about the movie's groundbreaking special effects,
   its thought-provoking philosophical themes, and its enduring cultural impact.
 EOF
-  town = "missingo"
+  town = "video-valley"
   #domain_name = module.terrahouse_aws.cdn_website_url
   domain_name = "something1.cloudfront.net"
   content_version = 1
@@ -34,5 +35,4 @@ EOF
   index_html_filepath = var.index_html_filepath
   error_html_filepath = var.error_html_filepath
   content_version = var.content_version
-  assets_path = var.assets_path
 } */
