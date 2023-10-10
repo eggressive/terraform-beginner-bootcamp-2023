@@ -8,13 +8,14 @@ terraform {
 }
 
 provider "terratowns" {
-  endpoint  = "http://localhost:4567/api"
+  #endpoint  = "https://terratowns.cloud/api"
+  endpoint = "http://localhost:4567/api"
   user_uuid = "e328f4ab-b99f-421c-84c9-4ccea042c7d1"
   token     = "9b49b3fb-b8e9-483c-b703-97ba88eef8e0"
 }
 
 resource "terratowns_home" "home" {
-  name = "The Matrix 1999"
+  name = "The Matrix"
   description = <<-EOF
   Dedicated to the the iconic sci-fi action film, The Matrix.
   Here, you can learn about the movie's groundbreaking special effects,
@@ -22,7 +23,7 @@ resource "terratowns_home" "home" {
 EOF
   town = "video-valley"
   #domain_name = module.terrahouse_aws.cdn_website_url
-  domain_name = "something.cloudfront.net"
+  domain_name = "something1.cloudfront.net"
   content_version = 1
 }
 
@@ -34,5 +35,4 @@ EOF
   index_html_filepath = var.index_html_filepath
   error_html_filepath = var.error_html_filepath
   content_version = var.content_version
-  assets_path = var.assets_path
 } */
