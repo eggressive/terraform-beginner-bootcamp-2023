@@ -11,6 +11,7 @@ tasks:
       source ./bin/tflogin.sh
       source ./bin/tfalias.sh
       cp $PROJECT_ROOT/examples/terraform.tfvars.example $PROJECT_ROOT/terraform.tfvars
+      source ./bin/build_provider.sh
   - name: aws-cli
     env:
       AWS_CLI_AUTO_PROMPT: on-partial
