@@ -20,25 +20,19 @@ variable "user_uuid" {
   }
 }
 
-variable "index_html_filepath" {
-  description = "The file path of the index.html file."
-  type        = string
-
-  validation {
-    condition     = can(fileexists(var.index_html_filepath))
-    error_message = "The specified index_html_filepath does not exist."
-  }
+/* variable "matrix" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
 
-variable "error_html_filepath" {
-  description = "The file path of the error.html file."
-  type        = string
-
-  validation {
-    condition     = can(fileexists(var.error_html_filepath))
-    error_message = "The specified error_html_filepath does not exist."
-  }
-}
+variable "starwars" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
+} */
 
 variable "content_version" {
   description = "The version of the website content."
@@ -50,7 +44,7 @@ variable "content_version" {
   }
 }
 
-variable "assets_path" {
-  description = "Path to assets folder."
+variable "public_path" {
+  description = "The file path for the public directory"
   type        = string
 }

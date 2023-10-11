@@ -5,13 +5,6 @@ terraform {
       version = "5.18.0"
     }
   }
-#  cloud {
-#    organization = "eggressive"
-#
-#  workspaces {
-#    name = "terra-house-eggressive"
-#    }
-#  }    
 }
 
 provider "aws" {
