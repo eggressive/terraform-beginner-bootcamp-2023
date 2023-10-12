@@ -36,11 +36,16 @@ resource "aws_s3_object" "website_index" {
 }
 
 resource "aws_s3_object" "upload_assets" {
-  for_each = fileset("${var.public_path}/assets", "*.{jpg,png,gif}")
+  for_each = fileset("${var.public_path}/assets", "*.{jpg,png,gif,mp3}")
   bucket = aws_s3_bucket.s3bucket.bucket
   key    = "assets/${each.key}"
   source = "${var.public_path}/assets/${each.key}"
-  content_type = "image/jpeg"
+    content_type = lookup({
+    jpg = "image/jpeg"
+    png = "image/png"
+    gif = "image/gif"
+    mp3 = "audio/mpeg"
+  }, lower(replace(each.key, "^.+\\.", "")), "binary/octet-stream")
   etag = filemd5("${var.public_path}/assets/${each.key}")
   lifecycle {
     replace_triggered_by = [ terraform_data.content_version.output]

@@ -53,7 +53,7 @@ resource "terratowns_home" "home_starwars" {
   It spans nine main episodic films, two anthology films, and various television series, 
   novels, comic books, video games, and other media.
 EOF
-  town = "video-valley"
+  town = "missingo"
   domain_name = module.home_starwars_hosting.domain_name
   content_version = var.starwars.content_version
 }
