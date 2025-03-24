@@ -1,11 +1,11 @@
-resource "aws_s3_bucket" "imported_bucket" {
+resource "aws_s3_bucket" "new_bucket" {
   bucket   = "bucket-ed-5015425678442496"
   provider = aws.eu-west
 }
 
 # Enable versioning for the bucket
 resource "aws_s3_bucket_versioning" "imported" {
-  bucket   = aws_s3_bucket.imported_bucket.id
+  bucket   = aws_s3_bucket.new_bucket.id
   provider = aws.eu-west
   versioning_configuration {
     status = "Enabled"
@@ -14,7 +14,7 @@ resource "aws_s3_bucket_versioning" "imported" {
 
 # Configure server-side encryption for the bucket
 resource "aws_s3_bucket_server_side_encryption_configuration" "imported" {
-  bucket   = aws_s3_bucket.imported_bucket.id
+  bucket   = aws_s3_bucket.new_bucket.id
   provider = aws.eu-west
 
   rule {
@@ -26,7 +26,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "imported" {
 
 # Block public access to the bucket
 resource "aws_s3_bucket_public_access_block" "imported" {
-  bucket   = aws_s3_bucket.imported_bucket.id
+  bucket   = aws_s3_bucket.new_bucket.id
   provider = aws.eu-west
 
   block_public_acls       = true
